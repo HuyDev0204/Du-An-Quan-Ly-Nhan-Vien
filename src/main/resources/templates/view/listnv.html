@@ -1,0 +1,26 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="content">
+    <h1 class="text-center">List Nhân Viên</h1>
+    <a th:href="@{/nhanvien/form}" class="btn btn-primary mb-3">+ Thêm Nhân Viên</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tên</th>
+                <th scope="col">Vị Trí</th>
+                <th scope="col">Lương</th>
+                <th scope="col">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nv : ${list}">
+                <td th:text="${nv.id}" scope="row"></td>
+                <td th:text="${nv.ten}"></td>
+                <td th:text="${nv.vitri}"></td>
+                <td th:text="${nv.luong}"></td>
+                <td>
+                    <a class="btn btn-warning btn-sm" th:href="@{'/nhanvien/edit/' + ${nv.id}}">Fix</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
